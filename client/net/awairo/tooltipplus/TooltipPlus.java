@@ -13,8 +13,6 @@ import net.minecraft.src.ScaledResolution;
  */
 public class TooltipPlus
 {
-    public static final String VERSION = "Tooltip Plus 2.0.0";
-
     private static final int ITEM_NONE_ID = -1;
     private static final int ITEM_NONE_DAMAGE = 0;
     private static final int ITEM_NONE_STACKSIZE = 0;

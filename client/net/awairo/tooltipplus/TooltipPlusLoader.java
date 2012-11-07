@@ -1,13 +1,9 @@
 package net.awairo.tooltipplus;
 
-import net.minecraft.src.Item;
-
-import com.google.common.base.Ticker;
-
-import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -19,15 +15,14 @@ import cpw.mods.fml.common.registry.TickRegistry;
  *
  * @author alalwww
  */
-@Mod(modid = "TooltipPlus", name = "Tooltip Plus", version = "2.0.0")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@Mod(modid = "TooltipPlus", name = "Tooltip Plus")
 public class TooltipPlusLoader
 {
     @Instance("TooltipPlus")
     public static TooltipPlusLoader loader;
 
     @SidedProxy(clientSide = "net.awairo.tooltipplus.TooltipPlusTicker")
-    public static TooltipPlusTicker ticker;
+    public static ITickHandler ticker;
 
     TooltipPlus mod;
 
@@ -35,7 +30,8 @@ public class TooltipPlusLoader
     public void preInitializeHandler(FMLPreInitializationEvent event)
     {
         Version.setVersion(event.getModMetadata().modId, event.getVersionProperties());
-        System.out.println(Version.getVersion());
+        event.getModMetadata().version = Version.getVersionString();
+        System.out.println(Version.getVersionString());
     }
 
     @Mod.Init

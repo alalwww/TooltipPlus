@@ -20,22 +20,40 @@ public final class Version
 
     private static String version;
 
+    private static boolean initialized = false;;
+
     /**
      * set mod id and version.properties.
      */
     static void setVersion(String pref, Properties prop)
     {
-        major = prop.getProperty(pref + ".version.major");
-        minor = prop.getProperty(pref + ".version.minor");
-        revision = prop.getProperty(pref + ".version.revision");
+        if (!initialized)
+        {
+            initialized = true;
 
-        build = prop.getProperty(pref + ".build");
-        githash = prop.getProperty(pref + ".githash");
+            major = prop.getProperty(pref + ".version.major");
+            minor = prop.getProperty(pref + ".version.minor");
+            revision = prop.getProperty(pref + ".version.revision");
 
-        version = String.format("%s.%s.%s #%s", major, minor, revision, build);
+            build = prop.getProperty(pref + ".build");
+            githash = prop.getProperty(pref + ".githash");
+
+            version = String.format("%s.%s.%s #%s", major, minor, revision, build);
+        }
     }
 
-    public static String getVersion()
+    public static void initializeFromModLoader()
+    {
+        if (initialized)
+        {
+            initialized = true;
+
+            version = "2.0.0 or higher version for ModLoader user.(non-supported)";
+            githash = null;
+        }
+    }
+
+    public static String getVersionString()
     {
         return version;
     }
@@ -43,6 +61,11 @@ public final class Version
     public static String getGithash()
     {
         return githash;
+    }
+
+    public static boolean isInitialized()
+    {
+        return initialized;
     }
 
     private Version()
