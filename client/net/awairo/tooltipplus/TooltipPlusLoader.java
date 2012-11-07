@@ -2,7 +2,9 @@ package net.awairo.tooltipplus;
 
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -26,7 +28,7 @@ public class TooltipPlusLoader
 
     TooltipPlus mod;
 
-    @Mod.PreInit
+    @PreInit
     public void preInitializeHandler(FMLPreInitializationEvent event)
     {
         Version.setVersion(event.getModMetadata().modId, event.getVersionProperties());
@@ -34,7 +36,7 @@ public class TooltipPlusLoader
         System.out.println(Version.getVersionString());
     }
 
-    @Mod.Init
+    @Init
     public void initializeHandler(FMLInitializationEvent event)
     {
         mod = new TooltipPlus();

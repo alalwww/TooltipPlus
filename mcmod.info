@@ -1,13 +1,13 @@
 [
 {
-  "modid": "mod_TooltipPlus",
+  "modid": "TooltipPlus",
   "name": "Tooltip Plus",
   "description": "Display the simple items tool tip when having it.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "mcversion": "1.4.2",
   "logoFile": "",
   "url": "http://forum.minecraftuser.jp/viewtopic.php?t=2321",
-  "updateUrl": "http://forum.minecraftuser.jp/viewtopic.php?t=2321",
+  "updateUrl": "",
   "authors": ["alalwww"],
   "credits": "By alalwww",
   "parent": "",
