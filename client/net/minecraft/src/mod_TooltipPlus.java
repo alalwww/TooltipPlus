@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 import net.awairo.tooltipplus.TooltipPlus;
 import net.awairo.tooltipplus.Version;
+import net.awairo.tooltipplus.common.ReflectionHelper;
 import net.minecraft.client.Minecraft;
 
 /**
@@ -15,7 +16,7 @@ public class mod_TooltipPlus extends BaseMod
     static
     {
         boolean b = false;
-        for (Class<?> ifClazz : mod_TooltipPlus.class.getInterfaces())
+        for (Class<?> ifClazz : BaseMod.class.getInterfaces())
         {
             if (ifClazz.getSimpleName().equals("BaseModProxy"))
             {
@@ -39,11 +40,13 @@ public class mod_TooltipPlus extends BaseMod
     @Override
     public void load()
     {
-        if (!FMLInstalled)
+        if (FMLInstalled)
         {
-            mod = new TooltipPlus();
-            ModLoader.setInGameHook(this, true, false);
+            return;
         }
+
+        mod = new TooltipPlus();
+        ModLoader.setInGameHook(this, true, false);
     }
 
     @Override
