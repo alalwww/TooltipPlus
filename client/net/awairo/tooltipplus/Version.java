@@ -48,7 +48,7 @@ public final class Version
         {
             initialized = true;
 
-            version = "2.0.0 or higher version for ModLoader user.(non-supported)";
+            version = "non-supported ModLoader version.";
             githash = null;
         }
     }
