@@ -86,8 +86,7 @@ class ItemInformationHelper
      */
     String getEnchantmentTip(ItemStack itemStack)
     {
-//      List<String> nameAndInfos = (List<String>) itemStack.getItemNameandInformation();
-        List<String> nameAndInfos = (List<String>) itemStack.func_82840_a(Minecraft.getMinecraft().thePlayer, false);
+        List<String> nameAndInfos = (List<String>) itemStack.getTooltip(Minecraft.getMinecraft().thePlayer, false);
         int size = nameAndInfos.size();
 
         if (size <= 1)
