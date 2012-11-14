@@ -9,7 +9,6 @@ import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.TickRegistry;
 
 /**
@@ -18,15 +17,12 @@ import cpw.mods.fml.common.registry.TickRegistry;
  * @author alalwww
  */
 @Mod(modid = "TooltipPlus", name = "Tooltip Plus")
-public class TooltipPlusLoader
+public class Loader
 {
-    @Instance("TooltipPlus")
-    public static TooltipPlusLoader loader;
+    @SidedProxy(clientSide = "net.awairo.tooltipplus.TickProxy")
+    public static ITickHandler tickHandler;
 
-    @SidedProxy(clientSide = "net.awairo.tooltipplus.TooltipPlusTicker")
-    public static ITickHandler ticker;
-
-    TooltipPlus mod;
+    static TooltipPlus mod;
 
     @PreInit
     public void preInitializeHandler(FMLPreInitializationEvent event)
@@ -40,6 +36,6 @@ public class TooltipPlusLoader
     public void initializeHandler(FMLInitializationEvent event)
     {
         mod = new TooltipPlus();
-        TickRegistry.registerTickHandler(ticker, Side.CLIENT);
+        TickRegistry.registerTickHandler(tickHandler, Side.CLIENT);
     }
 }
