@@ -1,10 +1,10 @@
-package net.awairo.tooltipplus;
+package net.awairo.minecraft.tooltipplus;
 
-import net.awairo.tooltipplus.common.Log;
-import net.awairo.tooltipplus.common.ReflectionHelper;
+import net.awairo.minecraft.tooltipplus.common.Log;
+import net.awairo.minecraft.tooltipplus.common.ReflectionHelper;
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ScaledResolution;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.item.ItemStack;
 
 /**
  * Tooltip Plus.

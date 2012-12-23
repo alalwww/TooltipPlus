@@ -1,16 +1,16 @@
-package net.awairo.tooltipplus;
+package net.awairo.minecraft.tooltipplus;
 
 import java.text.MessageFormat;
 import java.util.List;
 
-import net.awairo.tooltipplus.common.Log;
+import net.awairo.minecraft.tooltipplus.common.Log;
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 /**
  * ItemInformationHelper.
- *
+ * 
  * @author alalwww
  */
 class ItemInformationHelper
@@ -32,7 +32,7 @@ class ItemInformationHelper
 
     /**
      * アイテム名とかのツールチップ取得.
-     *
+     * 
      * @param game
      *            Minecraft
      * @param itemStack
@@ -49,7 +49,7 @@ class ItemInformationHelper
 
     /**
      * アイテムにエンチャントが施されている場合 true.
-     *
+     * 
      * @param itemStack
      *            アイテムスタック
      * @return エンチャントが施されている場合 true.
@@ -66,7 +66,7 @@ class ItemInformationHelper
 
     /**
      * アイテムが耐久度を持っている場合 true.
-     *
+     * 
      * @param itemStack
      *            アイテムスタック
      * @return 耐久度を持っている場合 true
@@ -79,7 +79,7 @@ class ItemInformationHelper
 
     /**
      * エンチャント情報のツールチップ取得.
-     *
+     * 
      * @param itemStack
      *            アイテムスタック
      * @return ツールチップ文字列
@@ -113,7 +113,7 @@ class ItemInformationHelper
 
     /**
      * 耐久度情報のツールチップ取得.
-     *
+     * 
      * @param itemStack
      *            アイテムスタック
      * @return ツールチップ文字列
@@ -127,7 +127,7 @@ class ItemInformationHelper
 
     /**
      * アイテムID(ブロックID)のツールチップ取得.
-     *
+     * 
      * @param itemStack
      *            アイテムスタック
      * @return アイテムID:ダメージ または アイテムID 文字列

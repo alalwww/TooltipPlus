@@ -1,8 +1,7 @@
 package net.minecraft.src;
 
-import net.awairo.tooltipplus.TooltipPlus;
-import net.awairo.tooltipplus.Version;
-import net.awairo.tooltipplus.common.ReflectionHelper;
+import net.awairo.minecraft.tooltipplus.TooltipPlus;
+import net.awairo.minecraft.tooltipplus.Version;
 import net.minecraft.client.Minecraft;
 
 /**

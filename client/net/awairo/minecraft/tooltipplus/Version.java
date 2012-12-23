@@ -1,10 +1,10 @@
-package net.awairo.tooltipplus;
+package net.awairo.minecraft.tooltipplus;
 
 import java.util.Properties;
 
 /**
  * Version class.
- *
+ * 
  * @author alalwww
  */
 public final class Version
@@ -33,12 +33,12 @@ public final class Version
 
             major = prop.getProperty(pref + ".version.major");
             minor = prop.getProperty(pref + ".version.minor");
+            build = prop.getProperty(pref + ".version.build");
             revision = prop.getProperty(pref + ".version.revision");
 
-            build = prop.getProperty(pref + ".build");
-            githash = prop.getProperty(pref + ".githash");
+            githash = prop.getProperty(pref + ".version.githash");
 
-            version = String.format("%s.%s.%s #%s", major, minor, revision, build);
+            version = String.format("%s.%s.%s #%s", major, minor, build, revision);
         }
     }
 

@@ -1,4 +1,4 @@
-package net.awairo.tooltipplus;
+package net.awairo.minecraft.tooltipplus;
 
 import java.util.EnumSet;
 
