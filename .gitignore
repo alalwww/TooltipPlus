@@ -1,5 +1,6 @@
 .settings
 .checkstyle
+.pydevproject
 *.zip
 /*.jpage
 /bin
