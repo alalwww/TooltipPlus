@@ -30,3 +30,6 @@ However, you can change from within the game if installed the GuiAPI.
 config/TooltipPlus.cfg ファイルを任意のテキストエディタで編集してください。
 ただしGuiAPIを導入しているのであれば、ゲーム内からの変更が出来ます。
 
+Downloads
+---------------
+*[Downloads](http://goo.gl/aThkh)
