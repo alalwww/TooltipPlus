@@ -135,7 +135,7 @@
         <mergemapper to="mcmod.info" />
       </mappedresources>
       <!--
-      <zipfileset dir="${basedir}" includes="${mod.logodir}/${mod.logofile}" />
+      <zipfileset dir="${mod.logodir}" includes="${mod.logofile}" />
       <fileset dir="${resource.dir}" erroronmissingdir="false">
         <filename name="**/*.png" />
       </fileset>

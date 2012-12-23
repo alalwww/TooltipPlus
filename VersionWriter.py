@@ -69,10 +69,12 @@ def main():
 
     # output
     with open(version_properties_filename, "w") as f:
-      f.write("#########################################\n#\n")
-      f.write("# " + mod_name + " version properties\n#\n")
-      f.write("# create: " + str(datetime.datetime.now()) + "\n#\n")
-      f.write("#########################################\n")
+      f.write("###################################################\n#\n")
+      f.write("# version.properties\n")
+      f.write("#\n")
+      f.write("# create: " + str(datetime.datetime.now()) + "\n")
+      f.write("#\n")
+      f.write("###################################################\n")
       f.write("%s=%s\n" % (mod_name + ".version.major", major))
       f.write("%s=%s\n" % (mod_name + ".version.minor", minor))
       f.write("%s=%s\n" % (mod_name + ".version.build", build))
