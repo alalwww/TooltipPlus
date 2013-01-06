@@ -3,19 +3,19 @@ package net.awairo.minecraft.tooltipplus;
 import java.awt.Color;
 
 import net.awairo.minecraft.tooltipplus.common.Log;
-import net.minecraft.src.ModSettingScreen;
-import net.minecraft.src.ModSettings;
-import net.minecraft.src.SettingBoolean;
-import net.minecraft.src.SettingInt;
-import net.minecraft.src.SettingMulti;
-import net.minecraft.src.WidgetClassicTwocolumn;
-import net.minecraft.src.WidgetSimplewindow;
+import sharose.mods.guiapi.ModSettingScreen;
+import sharose.mods.guiapi.ModSettings;
+import sharose.mods.guiapi.SettingBoolean;
+import sharose.mods.guiapi.SettingInt;
+import sharose.mods.guiapi.SettingMulti;
+import sharose.mods.guiapi.WidgetClassicTwocolumn;
+import sharose.mods.guiapi.WidgetSimplewindow;
 
 /**
  * TooltipPlus settings with GuiAPI.
- *
+ * 
  * @author alalwww
- *
+ * 
  */
 public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
 {

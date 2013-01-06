@@ -3,14 +3,14 @@ package net.awairo.minecraft.tooltipplus;
 import java.awt.Color;
 
 import net.awairo.minecraft.tooltipplus.common.ColorHelper;
-import net.minecraft.src.FontStatesGetter;
-import net.minecraft.src.GuiApiFontHelper;
-import net.minecraft.src.GuiApiHelper;
-import net.minecraft.src.GuiModScreen;
-import net.minecraft.src.ModAction;
-import net.minecraft.src.SettingInt;
-import net.minecraft.src.WidgetSimplewindow;
-import net.minecraft.src.WidgetSinglecolumn;
+import sharose.mods.guiapi.GuiApiFontHelper;
+import sharose.mods.guiapi.GuiApiFontHelper.FontStates;
+import sharose.mods.guiapi.GuiApiHelper;
+import sharose.mods.guiapi.GuiModScreen;
+import sharose.mods.guiapi.ModAction;
+import sharose.mods.guiapi.SettingInt;
+import sharose.mods.guiapi.WidgetSimplewindow;
+import sharose.mods.guiapi.WidgetSinglecolumn;
 import de.matthiasmann.twl.Button;
 import de.matthiasmann.twl.ColorSelector;
 import de.matthiasmann.twl.Label;
@@ -19,7 +19,7 @@ import de.matthiasmann.twl.model.ColorSpaceHSL;
 
 /**
  * ColouringWindow.
- *
+ * 
  * @author alalwww
  */
 class ColouringWindow
@@ -82,7 +82,7 @@ class ColouringWindow
 
     void updateLabelColors()
     {
-        colorFontHelper.setColor(FontStatesGetter.nomal, colorSelector.getColor());
+        colorFontHelper.setColor(FontStates.normal, colorSelector.getColor());
     }
 
     void reset()

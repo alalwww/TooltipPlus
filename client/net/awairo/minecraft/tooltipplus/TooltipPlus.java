@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 /**
  * Tooltip Plus.
- *
+ * 
  * @author alalwww
  */
 public class TooltipPlus
@@ -17,7 +17,7 @@ public class TooltipPlus
     private static final int ITEM_NONE_DAMAGE = 0;
     private static final int ITEM_NONE_STACKSIZE = 0;
 
-    private static final String GUI_API_CLASSNAME = "net.minecraft.src.ModSettings";
+    private static final String GUI_API_CLASSNAME = "sharose.mods.guiapi.GuiAPI";
 
     private final Minecraft game;
 
@@ -57,7 +57,7 @@ public class TooltipPlus
 
     /**
      * update
-     *
+     * 
      * @param renderPertialTicks
      */
     public void update()
