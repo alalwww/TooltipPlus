@@ -9,17 +9,17 @@ What is this?
 
 Installation instructions.
 ---------------
-
 ###Requirements
-*[Minecraft](http://minecraft.net/)
-*[Minecraft Forge](http://minecraftforge.net/) [(DL)](http://files.minecraftforge.net/) or [Forge Mod Loader](https://github.com/cpw/FML)[(DL)](http://files.minecraftforge.net/fml/)
+* [Minecraft](http://minecraft.net/)
+* [Minecraft Forge](http://minecraftforge.net/) [(DL)](http://files.minecraftforge.net/) or [Forge Mod Loader(FML)](https://github.com/cpw/FML) [(DL)](http://files.minecraftforge.net/fml/)
 
 ###Not Required, but Recommendation
-*[GuiAPI](http://www.minecraftforum.net/topic/612536-) [(GitHub)](https://github.com/ShaRose/GuiAPI/)
+* [GuiAPI](http://www.minecraftforum.net/topic/612536-) [(GitHub)](https://github.com/ShaRose/GuiAPI/)
 
 ###Installing
 1. Download and install FML (or Minecraft Forge) files into the minecraft.jar. In addition install GuiAPI if you need.
 FML (もしくは Minecraft Forge) をダウンロードし、minecraft.jar に導入します。必要であれば GuiAPI も併せて導入します。
+
 2. Add this MOD's ZIP file into mods folder, and run Minecraft. ENJOY!
 このMODのZIPファイルを mods フォルダーに加え、マインクラフトを実行します。
 
@@ -32,4 +32,4 @@ However, you can change from within the game if installed the GuiAPI.
 
 Downloads
 ---------------
-*[Download Tooltip Plus](http://goo.gl/aThkh) [(link detail)](http://goo.gl/#analytics/goo.gl/aThkh/all_time)
+* [Download Tooltip Plus](http://goo.gl/aThkh) [(link detail)](http://goo.gl/#analytics/goo.gl/aThkh/all_time)
