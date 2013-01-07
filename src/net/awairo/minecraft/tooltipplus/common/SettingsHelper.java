@@ -1,3 +1,13 @@
+/*
+ * TooltipPlus
+ * (c) 2012 alalwww
+ *
+ * License is like to the MIT, for more information please read the Japanese.
+ *
+ * ソースコードの部分流用に関して、一切の制限は設けません。
+ * ただしあらゆる意味での保障も行いません。
+ * Modとしての再配布については、README.txt を参照ください。
+ */
 package net.awairo.minecraft.tooltipplus.common;
 
 import java.io.File;
@@ -10,7 +20,7 @@ import net.minecraft.client.Minecraft;
 
 /**
  * settings helper.
- *
+ * 
  * @author alalwww
  * @version 1.0.0
  */
@@ -20,12 +30,12 @@ public class SettingsHelper
 
     /**
      * load configure file to properties.
-     *
+     * 
      * @param properties
      *            properties
      * @param configFile
      *            config file
-     *
+     * 
      * @throws RuntimeException
      *             It's so bug ridden.
      */
@@ -43,7 +53,7 @@ public class SettingsHelper
 
             if (e instanceof RuntimeException)
             {
-                throw(RuntimeException) e;
+                throw (RuntimeException) e;
             }
 
             throw new RuntimeException(e);
@@ -52,20 +62,20 @@ public class SettingsHelper
 
     /**
      * store properties to configure file.
-     *
+     * 
      * @param properties
      *            properties
      * @param configFile
      *            config file
      * @param comments
      *            comments
-     *
+     * 
      * @throws RuntimeException
      *             It's so bug ridden.
      */
 
     public static synchronized void store(Properties properties, File configFile, String comments)
-    throws RuntimeException
+            throws RuntimeException
     {
         try
         {
@@ -97,7 +107,7 @@ public class SettingsHelper
 
             if (e instanceof RuntimeException)
             {
-                throw(RuntimeException) e;
+                throw (RuntimeException) e;
             }
 
             throw new RuntimeException(e);
@@ -106,7 +116,7 @@ public class SettingsHelper
 
     /**
      * get "%appdata%\.minecraft\config" directory.
-     *
+     * 
      * @return config directory
      */
     public static File getConfigDir()
@@ -136,7 +146,7 @@ public class SettingsHelper
 
     /**
      * get value and cast.
-     *
+     * 
      * @param properties
      *            properties
      * @param key
@@ -144,7 +154,7 @@ public class SettingsHelper
      * @param defaultValue
      *            default value (not null)
      * @return casted value
-     *
+     * 
      * @throws RuntimeException
      *             It's so bug ridden.
      */

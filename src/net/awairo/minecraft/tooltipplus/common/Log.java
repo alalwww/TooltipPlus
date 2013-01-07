@@ -1,3 +1,13 @@
+/*
+ * TooltipPlus
+ * (c) 2012 alalwww
+ *
+ * License is like to the MIT, for more information please read the Japanese.
+ *
+ * ソースコードの部分流用に関して、一切の制限は設けません。
+ * ただしあらゆる意味での保障も行いません。
+ * Modとしての再配布については、README.txt を参照ください。
+ */
 package net.awairo.minecraft.tooltipplus.common;
 
 import java.io.PrintWriter;
@@ -11,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  * my mod logger.
- *
+ * 
  * <ul>
  * <li>severe: error</li>
  * <li>warning: illegal settings</li>
@@ -20,7 +30,7 @@ import java.util.logging.Logger;
  * <li>finer: common debug</li>
  * <li>finest: trace</li>
  * </ul>
- *
+ * 
  * @author alalwww
  * @version 1.0.0
  */

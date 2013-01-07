@@ -1,3 +1,13 @@
+/*
+ * TooltipPlus
+ * (c) 2012 alalwww
+ *
+ * License is like to the MIT, for more information please read the Japanese.
+ *
+ * ソースコードの部分流用に関して、一切の制限は設けません。
+ * ただしあらゆる意味での保障も行いません。
+ * Modとしての再配布については、README.txt を参照ください。
+ */
 package net.awairo.minecraft.tooltipplus.common;
 
 import java.awt.Color;
@@ -5,13 +15,13 @@ import java.util.regex.Pattern;
 
 /**
  * RGB形式またはRGBA形式の文字列を Color にパースします.
- *
+ * 
  * R、G、B、A は それぞれ 1または2桁の 0～F の16進数文字列です。
- *
+ * 
  * RGB形式の例) #RGB, 0xRGB, #RRGGBB, 0xRRGGBB, RGB, RRGGBB
- *
+ * 
  * RGBA形式の例) #ARGB, 0xARGB, #AARRGGBB, 0xAARRGGBB, ARGB, AARRGGBB
- *
+ * 
  * @author alalwww
  * @version 1.0.0
  */
@@ -22,7 +32,7 @@ public class ColorHelper
 
     /**
      * byte color to int color.
-     *
+     * 
      * @param b
      *            byte color
      * @return int color
@@ -34,19 +44,19 @@ public class ColorHelper
 
     /**
      * int color to byte color.
-     *
+     * 
      * @param i
      *            int color
      * @return byte color
      */
     public static byte toByteColor(int i)
     {
-        return (byte)((i >>> 0) & 0xFF);
+        return (byte) ((i >>> 0) & 0xFF);
     }
 
     /**
      * to color.
-     *
+     * 
      * @param colorString
      *            RGB or RGBA string
      * @return color or null
@@ -65,7 +75,7 @@ public class ColorHelper
 
     /**
      * to color.
-     *
+     * 
      * @param rgbString
      *            RGB string
      * @return color or null
@@ -77,7 +87,7 @@ public class ColorHelper
 
     /**
      * to color.
-     *
+     * 
      * @param rgbaString
      *            RGBA string
      * @return color or null
