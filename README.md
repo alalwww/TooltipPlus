@@ -11,8 +11,8 @@ Installation instructions.
 ---------------
 
 ###Requirements
-*Minecraft
-*[FML](https://github.com/cpw/FML) or [Minecraft Forge](http://minecraftforge.net/) [(Forge Downloads)](http://files.minecraftforge.net/)
+*[Minecraft](http://minecraft.net/)
+*[Minecraft Forge](http://minecraftforge.net/) [(DL)](http://files.minecraftforge.net/) or [Forge Mod Loader](https://github.com/cpw/FML)[(DL)](http://files.minecraftforge.net/fml/)
 
 ###Not Required, but Recommendation
 *[GuiAPI](http://www.minecraftforum.net/topic/612536-) [(GitHub)](https://github.com/ShaRose/GuiAPI/)
@@ -24,12 +24,12 @@ FML (もしくは Minecraft Forge) をダウンロードし、minecraft.jar に�
 このMODのZIPファイルを mods フォルダーに加え、マインクラフトを実行します。
 
 ###Configuration
-Edit config/TooltipPlus.cfg file with any text editor.
+Edit %appdata%/.minecraft/config/TooltipPlus.cfg file with any text editor.
 However, you can change from within the game if installed the GuiAPI.
 
-config/TooltipPlus.cfg ファイルを任意のテキストエディタで編集してください。
+%appdata%/.minecraft/config/TooltipPlus.cfg ファイルを任意のテキストエディタで編集してください。
 ただしGuiAPIを導入しているのであれば、ゲーム内からの変更が出来ます。
 
 Downloads
 ---------------
-*[Downloads](http://goo.gl/aThkh)
+*[Download Tooltip Plus](http://goo.gl/aThkh) [(link detail)](http://goo.gl/#analytics/goo.gl/aThkh/all_time)

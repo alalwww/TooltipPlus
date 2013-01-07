@@ -4,6 +4,6 @@
 *.zip
 /*.jpage
 /bin
-/client/mcmod.info
-/client/version.properties
+/src/mcmod.info
+/src/version.properties
 version.properties
