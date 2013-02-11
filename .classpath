@@ -6,6 +6,6 @@
 	<classpathentry kind="lib" path="/Minecraft/lib/argo-2.25.jar"/>
 	<classpathentry kind="lib" path="/Minecraft/lib/asm-all-4.0.jar" sourcepath="/Minecraft/lib/asm-all-4.0-source.jar"/>
 	<classpathentry kind="lib" path="/Minecraft/lib/guava-12.0.1.jar" sourcepath="/Minecraft/lib/guava-12.0.1-sources.jar"/>
-	<classpathentry kind="lib" path="/Minecraft/lib/GuiAPI-devpack-0.15.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GuiAPI"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
