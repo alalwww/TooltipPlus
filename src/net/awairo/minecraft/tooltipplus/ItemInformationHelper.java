@@ -225,7 +225,7 @@ class ItemInformationHelper
      */
     private boolean isBow(ItemStack itemStack)
     {
-        return itemStack.getItem().shiftedIndex == Item.bow.shiftedIndex;
+        return itemStack.getItem().itemID == Item.bow.itemID;
     }
 
     /**
@@ -258,7 +258,7 @@ class ItemInformationHelper
                 continue;
             }
 
-            if (target.shiftedIndex != is.getItem().shiftedIndex)
+            if (target.itemID != is.getItem().itemID)
             {
                 continue;
             }

@@ -35,7 +35,7 @@ public class ItemBlockSearcher
         {
             if (item != null && item.getItemName().equals(key))
             {
-                Integer value = item.shiftedIndex - 256;
+                Integer value = item.itemID - 256;
                 dictionary.put(key, value);
                 return (I) item;
             }
