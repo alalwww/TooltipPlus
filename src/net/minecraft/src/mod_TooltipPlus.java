@@ -42,7 +42,7 @@ public class mod_TooltipPlus extends BaseMod
     @Override
     public String getVersion()
     {
-        Version.initializeFromModLoader();
+        Version.initializeFromRML();
         return Version.getVersionString();
     }
 

@@ -52,13 +52,13 @@ public final class Version
         }
     }
 
-    public static void initializeFromModLoader()
+    public static void initializeFromRML()
     {
         if (initialized)
         {
             initialized = true;
 
-            version = "non-supported ModLoader version.";
+            version = "RML IS NON-SUPPORTED!!";
             githash = null;
         }
     }
