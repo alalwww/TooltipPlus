@@ -1,0 +1,3 @@
+[submodule "commons"]
+	path = commons
+	url = ssh://git@github.com/alalwww/AwAModCommons.git
