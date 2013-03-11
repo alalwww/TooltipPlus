@@ -13,7 +13,7 @@ package net.awairo.minecraft.tooltipplus;
 import java.text.MessageFormat;
 import java.util.List;
 
-import net.awairo.minecraft.tooltipplus.common.Log;
+import net.awairo.minecraft.common.Log;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

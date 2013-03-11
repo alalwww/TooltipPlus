@@ -10,7 +10,7 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import net.awairo.minecraft.tooltipplus.common.Log;
+import net.awairo.minecraft.common.Log;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 

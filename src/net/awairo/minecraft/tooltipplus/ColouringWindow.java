@@ -12,7 +12,7 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.awt.Color;
 
-import net.awairo.minecraft.tooltipplus.common.ColorHelper;
+import net.awairo.minecraft.common.ColorHelper;
 import sharose.mods.guiapi.GuiApiFontHelper;
 import sharose.mods.guiapi.GuiApiFontHelper.FontStates;
 import sharose.mods.guiapi.GuiApiHelper;

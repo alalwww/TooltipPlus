@@ -12,7 +12,7 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.awt.Color;
 
-import net.awairo.minecraft.tooltipplus.common.Log;
+import net.awairo.minecraft.common.Log;
 import sharose.mods.guiapi.ModSettingScreen;
 import sharose.mods.guiapi.ModSettings;
 import sharose.mods.guiapi.SettingBoolean;

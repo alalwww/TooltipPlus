@@ -10,15 +10,15 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import static net.awairo.minecraft.tooltipplus.common.SettingsHelper.getValue;
+import static net.awairo.minecraft.common.SettingsHelper.getValue;
 
 import java.awt.Color;
 import java.io.File;
 import java.util.Properties;
 
-import net.awairo.minecraft.tooltipplus.common.ColorHelper;
-import net.awairo.minecraft.tooltipplus.common.Log;
-import net.awairo.minecraft.tooltipplus.common.SettingsHelper;
+import net.awairo.minecraft.common.ColorHelper;
+import net.awairo.minecraft.common.Log;
+import net.awairo.minecraft.common.SettingsHelper;
 import net.minecraft.client.settings.GameSettings;
 
 /**
