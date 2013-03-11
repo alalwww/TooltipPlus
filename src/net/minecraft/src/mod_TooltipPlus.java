@@ -10,7 +10,7 @@
  */
 package net.minecraft.src;
 
-import net.awairo.minecraft.tooltipplus.TooltipPlus;
+import net.awairo.minecraft.tooltipplus.TooltipUpdater;
 import net.awairo.minecraft.tooltipplus.TooltipPlusVersion;
 import net.minecraft.client.Minecraft;
 
@@ -37,7 +37,7 @@ public class mod_TooltipPlus extends BaseMod
         FMLInstalled = isfml;
     }
 
-    private TooltipPlus mod;
+    private TooltipUpdater updater;
 
     TooltipPlusVersion version = new TooltipPlusVersion();
 
@@ -55,7 +55,7 @@ public class mod_TooltipPlus extends BaseMod
             return;
         }
 
-        mod = new TooltipPlus();
+        updater = new TooltipUpdater();
         ModLoader.setInGameHook(this, true, false);
     }
 
@@ -67,7 +67,7 @@ public class mod_TooltipPlus extends BaseMod
             return false;
         }
 
-        mod.update();
+        updater.update();
         return true;
     }
 }
