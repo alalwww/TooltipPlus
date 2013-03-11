@@ -33,12 +33,14 @@ public class Loader
 
     static TooltipPlus mod;
 
+    TooltipPlusVersion version;
+
     @PreInit
     public void preInitializeHandler(FMLPreInitializationEvent event)
     {
-        Version.setVersion(event.getModMetadata().modId, event.getVersionProperties());
-        event.getModMetadata().version = Version.getVersionString();
-        System.out.println(event.getModMetadata().name + " v" + Version.getVersionString());
+        version = new TooltipPlusVersion(event.getModMetadata().modId, event.getVersionProperties());
+        event.getModMetadata().version = version.toString();
+        System.out.println(String.format("%s v%s", event.getModMetadata().name, version));
     }
 
     @Init

@@ -11,7 +11,7 @@
 package net.minecraft.src;
 
 import net.awairo.minecraft.tooltipplus.TooltipPlus;
-import net.awairo.minecraft.tooltipplus.Version;
+import net.awairo.minecraft.tooltipplus.TooltipPlusVersion;
 import net.minecraft.client.Minecraft;
 
 /**
@@ -39,11 +39,12 @@ public class mod_TooltipPlus extends BaseMod
 
     private TooltipPlus mod;
 
+    TooltipPlusVersion version = new TooltipPlusVersion();
+
     @Override
     public String getVersion()
     {
-        Version.initializeFromRML();
-        return Version.getVersionString();
+        return version.toString();
     }
 
     @Override
