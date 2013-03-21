@@ -25,9 +25,6 @@
 		<!-- AwA commons -->
 		<property name="awacommons" location="${basedir}/commons" />
 
-		<!-- mcmod.inof -->
-		<property name="mcmod.info" location="${awacommons}/mcmod.info" />
-
 		<!-- mod infos -->
 		<property name="mod.src" location="src" />
 		<property name="mod.commons.src" location="${awacommons}/src" />
@@ -124,7 +121,7 @@
 			<zipfileset dir="${basedir}" includes="docs/README.txt" />
 			<mappedresources>
 				<concat>
-					<fileset dir="${basedir}" includes="${mcmod.info}" />
+					<fileset dir="${basedir}" includes="commons/mcmod.info" />
 					<filterchain>
 						<replacetokens>
 							<token key="MODID" value="${mod.id}" />
@@ -138,7 +135,7 @@
 						</replacetokens>
 					</filterchain>
 				</concat>
-				<mergemapper to="${mcmod.info}" />
+				<mergemapper to="mcmod.info" />
 			</mappedresources>
 			<!--
       <zipfileset dir="${mod.logodir}" includes="${mod.logofile}" />
