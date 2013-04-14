@@ -31,7 +31,7 @@
 		<property name="mod.release" location="${env.HOME}/Dropbox/mcmods/${mod.name}" />
 
 		<!-- mcp infos -->
-		<property name="mcp.home" location="../.." />
+		<property name="mcp.home" location="../mcp/1.5.1/fml_625/mcp" />
 		<property name="mcp.src" location="${mcp.home}/src/minecraft" />
 		<property name="mcp.src.backup" location="${mcp.src}.back" />
 		<property name="mcp.reobfdir" location="${mcp.home}/reobf" />
@@ -49,8 +49,7 @@
 
 		<!-- python -->
 		<property name="python.exe" location="${mcp.runtime}/bin/python/python_mcp.exe" />
-		<property name="py.src" location="${awacommons}/script" />
-		<property name="versionwriter" location="${py.src}/VersionWriter.py" />
+		<property name="versionwriter" location="${awacommons}/src/main/python/VersionWriter.py" />
 
 	</target>
 
