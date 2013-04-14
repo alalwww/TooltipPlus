@@ -12,6 +12,7 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.util.EnumSet;
 
+import net.awairo.minecraft.common.Logger;
 import net.awairo.minecraft.common.Version;
 import net.minecraft.client.Minecraft;
 import cpw.mods.fml.common.ITickHandler;
@@ -32,6 +33,7 @@ import cpw.mods.fml.relauncher.Side;
 @Mod(modid = Metadata.MOD_ID, name = Metadata.MOD_NAME)
 public class TooltipPlus implements ITickHandler
 {
+    private final Logger log = Logger.getLogger(getClass());
     private final Minecraft game = Minecraft.getMinecraft();
 
     private TooltipUpdater updater;
@@ -43,7 +45,7 @@ public class TooltipPlus implements ITickHandler
     {
         version = new Version(Metadata.MOD_ID, event.getVersionProperties());
         event.getModMetadata().version = version.toString();
-        System.out.println(String.format("%s v%s", event.getModMetadata().name, version));
+        log.info(String.format("%s v%s", event.getModMetadata().name, version));
     }
 
     @Init
