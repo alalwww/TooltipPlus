@@ -22,12 +22,7 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/mcmod.info</name>
-			<type>1</type>
-			<locationURI>PROJECT_LOC/commons/src/main/assets/mcmod.info</locationURI>
-		</link>
-		<link>
-			<name>src/version.properties</name>
+			<name>src/main/assets/version.properties</name>
 			<type>1</type>
 			<locationURI>PROJECT_LOC/version.properties</locationURI>
 		</link>
