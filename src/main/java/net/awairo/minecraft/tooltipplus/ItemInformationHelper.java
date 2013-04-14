@@ -215,7 +215,7 @@ class ItemInformationHelper
             }
         }
 
-        if (ret.length() > 0)
+        if (ret.length() > 0 && settings.trace)
         {
             log.trace(ret);
         }

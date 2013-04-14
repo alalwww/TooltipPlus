@@ -84,11 +84,11 @@ public class TooltipUpdater
             saveCurrentItemInfo(currentItem);
             updateTips(currentItem);
 
-            if (settings.debug)
+            if (settings.trace)
             {
                 for (Tooltip t : tips)
                 {
-                    log.info(t.toString());
+                    log.trace(t.toString());
                 }
             }
         }
