@@ -29,7 +29,7 @@ import net.minecraft.client.settings.GameSettings;
  */
 public class TooltipPlusSettings
 {
-    private final Logger log = Logger.getLogger(TooltipPlus.class);
+    protected static final Logger log = Logger.getLogger(TooltipPlus.class);
 
     private static final String SETTINGS_FILENAME = "TooltipPlus.cfg";
     private static final String CONFIG_COMMENT = String.format("Please read the readme.txt if you want to edit.%n");
