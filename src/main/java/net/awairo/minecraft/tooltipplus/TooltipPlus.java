@@ -12,14 +12,13 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.util.EnumSet;
 
+import net.awairo.minecraft.common.Version;
 import net.minecraft.client.Minecraft;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.Mod.Init;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.TickRegistry;
@@ -37,12 +36,12 @@ public class TooltipPlus implements ITickHandler
 
     private TooltipUpdater updater;
 
-    TooltipPlusVersion version;
+    private Version version;
 
     @PreInit
     public void preInitializeHandler(FMLPreInitializationEvent event)
     {
-        version = new TooltipPlusVersion(event.getModMetadata().modId, event.getVersionProperties());
+        version = new Version(Metadata.MOD_ID, event.getVersionProperties());
         event.getModMetadata().version = version.toString();
         System.out.println(String.format("%s v%s", event.getModMetadata().name, version));
     }
@@ -94,4 +93,8 @@ public class TooltipPlus implements ITickHandler
         return "TooltipPlusTicker";
     }
 
+    public Version version()
+    {
+        return version;
+    }
 }

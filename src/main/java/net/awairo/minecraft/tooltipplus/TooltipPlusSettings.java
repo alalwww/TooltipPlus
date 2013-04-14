@@ -10,14 +10,14 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import static net.awairo.minecraft.common.SettingsHelper.getValue;
+import static net.awairo.minecraft.common.SettingsHelper.*;
 
 import java.awt.Color;
 import java.io.File;
 import java.util.Properties;
 
-import net.awairo.minecraft.common.ColorHelper;
-import net.awairo.minecraft.common.Log;
+import net.awairo.minecraft.common.ColorUtils;
+import net.awairo.minecraft.common.Logger;
 import net.awairo.minecraft.common.SettingsHelper;
 import net.minecraft.client.settings.GameSettings;
 
@@ -29,6 +29,8 @@ import net.minecraft.client.settings.GameSettings;
  */
 public class TooltipPlusSettings
 {
+    protected static final Logger log = Logger.getLogger(TooltipPlus.class);
+
     private static final String SETTINGS_FILENAME = "TooltipPlus.cfg";
     private static final String CONFIG_COMMENT = String.format("Please read the readme.txt if you want to edit.%n");
 
@@ -54,7 +56,7 @@ public class TooltipPlusSettings
     protected boolean enableEnchantmentTip = true;
     protected boolean enableIdTip = false;
 
-    protected Color color = ColorHelper.parseColorRGB("#FFFFFF");
+    protected Color color = ColorUtils.parseColorRGB("#FFFFFF");
 
     protected boolean forceUpdate;
     protected volatile boolean settingsChanged;
@@ -86,7 +88,7 @@ public class TooltipPlusSettings
         setEnableDurabilityTip(getValue(properties, SHOW_DURABILITY, enableDurabilityTip));
         setEnableEnchantmentTip(getValue(properties, SHOW_ENCHANTMENT, enableEnchantmentTip));
         setEnableIdTip(getValue(properties, SHOW_ID, enableIdTip));
-        setColor(ColorHelper.parseColorRGB(getValue(properties, COLOR, ColorHelper.toString(color))));
+        setColor(ColorUtils.parseColorRGB(getValue(properties, COLOR, ColorUtils.toString(color))));
         debug = getValue(properties, DEBUG, false);
     }
 
@@ -107,14 +109,14 @@ public class TooltipPlusSettings
         properties.setProperty(SHOW_DURABILITY, Boolean.toString(showDurability()));
         properties.setProperty(SHOW_ENCHANTMENT, Boolean.toString(showEnchantment()));
         properties.setProperty(SHOW_ID, Boolean.toString(showID()));
-        properties.setProperty(COLOR, ColorHelper.toString(getColor()));
+        properties.setProperty(COLOR, ColorUtils.toString(getColor()));
         properties.setProperty(DEBUG, Boolean.toString(debug));
         SettingsHelper.store(properties, configFile, CONFIG_COMMENT);
-        Log.info("settings saved.");
+        log.info("settings saved.");
 
         if (debug)
         {
-            Log.info(toString());
+            log.info(toString());
         }
     }
 
@@ -177,7 +179,7 @@ public class TooltipPlusSettings
     {
         if (durationMilliSec < UPDATE_DURATION_MIN || durationMilliSec > UPDATE_DURATION_MAX)
         {
-            Log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, durationMilliSec, 100, "10-10000");
+            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, durationMilliSec, 100, "10-10000");
             settingsChanged = true;
             durationMilliSec = 100;
         }
@@ -206,7 +208,7 @@ public class TooltipPlusSettings
     {
         if (h < H_OFFSET_MIN || h > H_OFFSET_MAX)
         {
-            Log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, h, 2, "0-50");
+            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, h, 2, "0-50");
             settingsChanged = true;
             h = 2;
         }
@@ -234,7 +236,7 @@ public class TooltipPlusSettings
     {
         if (v < V_OFFSET_MIN || v > V_OFFSET_MAX)
         {
-            Log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, v, 2, "0-50");
+            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, v, 2, "0-50");
             settingsChanged = true;
             v = 2;
         }
@@ -368,7 +370,7 @@ public class TooltipPlusSettings
         sb.append(SHOW_DURABILITY).append("=").append(showDurability()).append(", ");
         sb.append(SHOW_ENCHANTMENT).append("=").append(showEnchantment()).append(", ");
         sb.append(SHOW_ID).append("=").append(showID()).append(", ");
-        sb.append(COLOR).append("=").append(ColorHelper.toString(getColor())).append(", ");
+        sb.append(COLOR).append("=").append(ColorUtils.toString(getColor())).append(", ");
         sb.append(DEBUG).append("=").append(debug);
         return sb.toString();
     }

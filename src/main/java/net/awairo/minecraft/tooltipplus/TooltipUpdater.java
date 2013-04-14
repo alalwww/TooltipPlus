@@ -10,7 +10,7 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import net.awairo.minecraft.common.Log;
+import net.awairo.minecraft.common.Logger;
 import net.awairo.minecraft.common.ReflectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -23,6 +23,8 @@ import net.minecraft.item.ItemStack;
  */
 public class TooltipUpdater
 {
+    private final Logger log = Logger.getLogger(TooltipPlus.class);
+
     private static final int ITEM_NONE_ID = -1;
     private static final int ITEM_NONE_DAMAGE = 0;
     private static final int ITEM_NONE_STACKSIZE = 0;
@@ -46,23 +48,19 @@ public class TooltipUpdater
      */
     public TooltipUpdater()
     {
-        Log.initialize(getClass().getSimpleName(), ItemStack.class.getPackage() != null);
         game = Minecraft.getMinecraft();
 
-        if (ReflectionHelper.findMod(GUI_API_CLASSNAME))
-        {
+        if (ReflectionHelper.findClass(GUI_API_CLASSNAME))
             settings = new TooltipPlusSettingsForGuiAPI();
-        }
         else
-        {
             settings = new TooltipPlusSettings();
-        }
 
         helper = new ItemInformationHelper(settings);
         renderer = new TooltipRenderer(settings);
         tips = new TooltipPool();
         lastUpdateTime = System.nanoTime();
-        Log.info("initialize completed.");
+
+        log.info("initialize completed.");
     }
 
     /**
@@ -90,7 +88,7 @@ public class TooltipUpdater
             {
                 for (Tooltip t : tips)
                 {
-                    Log.info(t.toString());
+                    log.info(t.toString());
                 }
             }
         }
