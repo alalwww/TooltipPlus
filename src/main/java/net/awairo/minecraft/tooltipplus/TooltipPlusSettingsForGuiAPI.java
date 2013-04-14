@@ -12,7 +12,7 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.awt.Color;
 
-import net.awairo.minecraft.common.Log;
+import net.awairo.minecraft.common.Logger;
 import sharose.mods.guiapi.ModSettingScreen;
 import sharose.mods.guiapi.ModSettings;
 import sharose.mods.guiapi.SettingBoolean;
@@ -29,6 +29,8 @@ import sharose.mods.guiapi.WidgetSimplewindow;
  */
 public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
 {
+    private final Logger log = Logger.getLogger(TooltipPlus.class);
+
     private WidgetSimplewindow window;
     private SettingBoolean gaEnabled;
     private SettingMulti gaPosition;
@@ -80,7 +82,7 @@ public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
         colouringWindow = new ColouringWindow(r, g, b);
         mss.append(colouringWindow.openButton);
         window.backButton.addCallback(new WindowCloseHandler());
-        Log.info("GuiAPI initialized.");
+        log.info("GuiAPI initialized.");
     }
 
     @Override

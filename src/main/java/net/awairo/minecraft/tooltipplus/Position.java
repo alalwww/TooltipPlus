@@ -10,7 +10,7 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import net.awairo.minecraft.common.Log;
+import net.awairo.minecraft.common.Logger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 
@@ -42,6 +42,7 @@ public enum Position
      */
     BOTTOM_RIGHT(3, "Bottom Right");
 
+    private static final Logger log = Logger.getLogger(TooltipPlus.class);
     public final int intValue;
     public final String label;
 
@@ -125,7 +126,7 @@ public enum Position
             }
         }
 
-        Log.warning("illegal setting value. value=%d", intValue);
+        log.warning("illegal setting value. value=%d", intValue);
         return null;
     }
 }

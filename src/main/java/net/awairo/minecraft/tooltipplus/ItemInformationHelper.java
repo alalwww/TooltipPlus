@@ -13,7 +13,7 @@ package net.awairo.minecraft.tooltipplus;
 import java.text.MessageFormat;
 import java.util.List;
 
-import net.awairo.minecraft.common.Log;
+import net.awairo.minecraft.common.Logger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,6 +25,8 @@ import net.minecraft.item.ItemStack;
  */
 class ItemInformationHelper
 {
+    private final Logger log = Logger.getLogger(TooltipPlus.class);
+
     String stackCountTip = "{0}x ";
     String allStackCountTip = " [{0}]";
     String durabilityTip = "{0}/{1}";
@@ -96,6 +98,7 @@ class ItemInformationHelper
      */
     String getEnchantmentTip(ItemStack itemStack)
     {
+        @SuppressWarnings("unchecked")
         List<String> nameAndInfos = (List<String>) itemStack.getTooltip(Minecraft.getMinecraft().thePlayer, false);
         int size = nameAndInfos.size();
 
@@ -174,7 +177,7 @@ class ItemInformationHelper
 
         if (ret.length() > 0)
         {
-            Log.finest(ret);
+            log.trace(ret);
         }
 
         return ret;
@@ -214,7 +217,7 @@ class ItemInformationHelper
 
         if (ret.length() > 0)
         {
-            Log.finest(ret);
+            log.trace(ret);
         }
 
         return ret;

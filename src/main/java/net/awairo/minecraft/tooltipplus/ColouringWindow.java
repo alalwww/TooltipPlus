@@ -12,7 +12,7 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.awt.Color;
 
-import net.awairo.minecraft.common.ColorHelper;
+import net.awairo.minecraft.common.ColorUtils;
 import sharose.mods.guiapi.GuiApiFontHelper;
 import sharose.mods.guiapi.GuiApiFontHelper.FontStates;
 import sharose.mods.guiapi.GuiApiHelper;
@@ -80,9 +80,9 @@ class ColouringWindow
 
     void updateColor()
     {
-        r.set(ColorHelper.toIntColor(colorSelector.getColor().getR()));
-        g.set(ColorHelper.toIntColor(colorSelector.getColor().getG()));
-        b.set(ColorHelper.toIntColor(colorSelector.getColor().getB()));
+        r.set(ColorUtils.toIntColor(colorSelector.getColor().getR()));
+        g.set(ColorUtils.toIntColor(colorSelector.getColor().getG()));
+        b.set(ColorUtils.toIntColor(colorSelector.getColor().getB()));
     }
 
     Color getColor()
@@ -97,9 +97,9 @@ class ColouringWindow
 
     void reset()
     {
-        byte br = ColorHelper.toByteColor(r.get());
-        byte bg = ColorHelper.toByteColor(g.get());
-        byte bb = ColorHelper.toByteColor(b.get());
+        byte br = ColorUtils.toByteColor(r.get());
+        byte bg = ColorUtils.toByteColor(g.get());
+        byte bb = ColorUtils.toByteColor(b.get());
         colorSelector.setColor(new de.matthiasmann.twl.Color(br, bg, bb, (byte) 0xff));
     }
 }
