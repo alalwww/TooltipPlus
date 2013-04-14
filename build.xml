@@ -27,12 +27,14 @@
 
 		<!-- mod infos -->
 		<property name="mod.src" location="src" />
+		<property name="mod.bin" location="bin" />
 		<property name="mod.commons.src" location="${awacommons}/src" />
-		<property name="mod.release" location="${env.HOME}/Dropbox/mcmods/${mod.name}" />
+		<!--<property name="mod.release" location="${env.HOME}/Dropbox/mcmods/${mod.name}" />-->
+		<property name="mod.release" location="testzip" />
 
 		<!-- mcp infos -->
-		<property name="mcp.home" location="../mcp/1.5.1/fml_625/mcp" />
 		<property name="mcp.src" location="${mcp.home}/src/minecraft" />
+		<property name="mcp.bin" location="${mcp.home}/bin/minecraft" />
 		<property name="mcp.src.backup" location="${mcp.src}.back" />
 		<property name="mcp.reobfdir" location="${mcp.home}/reobf" />
 		<property name="mcp.reobf.classes" location="${mcp.reobfdir}/minecraft" />
@@ -88,12 +90,25 @@
 		</exec>
 	</target>
 
+	<target name="reobfuscate_srg" depends="initialize">
+		<exec executable="${python.exe}" dir="${mcp.home}" failonerror="true">
+			<arg value="${mcp.command.reobfuscate}" />
+		    <arg value="${--srgnames}" />
+		</exec>
+	</target>
+
 	<!-- ================================================== -->
 
 	<target name="copy mod sources" depends="initialize">
 		<copy todir="${mcp.src}" preservelastmodified="yes">
 			<fileset dir="${mod.src}" />
 			<fileset dir="${mod.commons.src}" />
+		</copy>
+	</target>
+
+    <target name="copy mod classes" depends="initialize">
+		<copy todir="${mcp.bin}" preservelastmodified="yes">
+			<fileset dir="${mod.bin}" />
 		</copy>
 	</target>
 
@@ -145,16 +160,6 @@
 		</zip>
 	</target>
 
-	<target name="create RMLProxy package" depends="initialize, load version">
-		<echo>proxy package: ${mod.release.filename.rmlproxy}}</echo>
-		<mkdir dir="${mod.release}" />
-		<mkdir dir="${mod.release}/${mod.release.subdir}" />
-		<zip destfile="${mod.release}/${mod.release.subdir}/${mod.release.filename.rmlproxy}">
-			<fileset dir="${mcp.reobf.classes}" includes="mod_*.class" />
-			<zipfileset dir="${basedir}" includes="docs/README-LOADER.txt" />
-		</zip>
-	</target>
-
 	<!-- ================================================== -->
 
 	<target name="update version.properties" depends="initialize" description="バージョンプロパティファイル更新">
@@ -179,12 +184,19 @@
 	<target name="build" depends="initialize">
 		<echo>build start ${timestamp}</echo>
 		<antcall target="load version" />
+	    <!--
 		<antcall target="copy mod sources" />
+	    -->
 		<antcall target="recompile" />
+		<antcall target="copy mod classes" />
+	    <!--
 		<antcall target="reobfuscate" />
+	    -->
+		<antcall target="reobfuscate_srg" />
+	    <!--
 		<antcall target="restore original source" />
+	    -->
 		<antcall target="create mod package" />
-		<antcall target="create RMLProxy package" />
 		<antcall target="delete reobfuscated classes" />
 	</target>
 
