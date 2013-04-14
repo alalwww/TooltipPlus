@@ -17,9 +17,9 @@ import java.io.File;
 import java.util.Properties;
 
 import net.awairo.minecraft.common.ColorUtils;
+import net.awairo.minecraft.common.Env;
 import net.awairo.minecraft.common.Logger;
 import net.awairo.minecraft.common.SettingsHelper;
-import net.minecraft.client.settings.GameSettings;
 
 /**
  * Tooltip Plus Settings
@@ -29,15 +29,16 @@ import net.minecraft.client.settings.GameSettings;
  */
 public class TooltipPlusSettings
 {
-    protected static final Logger log = Logger.getLogger(TooltipPlus.class);
+    protected static final Logger LOG = Logger.getLogger(TooltipPlus.class);
 
     private static final String SETTINGS_FILENAME = "TooltipPlus.cfg";
     private static final String CONFIG_COMMENT = String.format("Please read the readme.txt if you want to edit.%n");
 
     private static final String ILLEGAL_SETTINGS = "Illegal setting value. key=%s, value=%s, newValue=%s, rule=%s";
 
-    private static final String DEBUG = "tooltipplus.debug";
-    boolean debug = GameSettings.class.getPackage() != null;
+    final Env env = new Env(Metadata.MOD_ID);
+    boolean debug = env.isDebugEnabled();
+    boolean trace = env.isTraceEnabled();
 
     private final File configFile;
     private final Properties properties;
@@ -89,7 +90,6 @@ public class TooltipPlusSettings
         setEnableEnchantmentTip(getValue(properties, SHOW_ENCHANTMENT, enableEnchantmentTip));
         setEnableIdTip(getValue(properties, SHOW_ID, enableIdTip));
         setColor(ColorUtils.parseColorRGB(getValue(properties, COLOR, ColorUtils.toString(color))));
-        debug = getValue(properties, DEBUG, false);
     }
 
     protected void save()
@@ -110,13 +110,12 @@ public class TooltipPlusSettings
         properties.setProperty(SHOW_ENCHANTMENT, Boolean.toString(showEnchantment()));
         properties.setProperty(SHOW_ID, Boolean.toString(showID()));
         properties.setProperty(COLOR, ColorUtils.toString(getColor()));
-        properties.setProperty(DEBUG, Boolean.toString(debug));
         SettingsHelper.store(properties, configFile, CONFIG_COMMENT);
-        log.info("settings saved.");
+        LOG.info("settings saved.");
 
         if (debug)
         {
-            log.info(toString());
+            LOG.info(toString());
         }
     }
 
@@ -179,7 +178,7 @@ public class TooltipPlusSettings
     {
         if (durationMilliSec < UPDATE_DURATION_MIN || durationMilliSec > UPDATE_DURATION_MAX)
         {
-            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, durationMilliSec, 100, "10-10000");
+            LOG.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, durationMilliSec, 100, "10-10000");
             settingsChanged = true;
             durationMilliSec = 100;
         }
@@ -208,7 +207,7 @@ public class TooltipPlusSettings
     {
         if (h < H_OFFSET_MIN || h > H_OFFSET_MAX)
         {
-            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, h, 2, "0-50");
+            LOG.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, h, 2, "0-50");
             settingsChanged = true;
             h = 2;
         }
@@ -236,7 +235,7 @@ public class TooltipPlusSettings
     {
         if (v < V_OFFSET_MIN || v > V_OFFSET_MAX)
         {
-            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, v, 2, "0-50");
+            LOG.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, v, 2, "0-50");
             settingsChanged = true;
             v = 2;
         }
@@ -371,7 +370,6 @@ public class TooltipPlusSettings
         sb.append(SHOW_ENCHANTMENT).append("=").append(showEnchantment()).append(", ");
         sb.append(SHOW_ID).append("=").append(showID()).append(", ");
         sb.append(COLOR).append("=").append(ColorUtils.toString(getColor())).append(", ");
-        sb.append(DEBUG).append("=").append(debug);
         return sb.toString();
     }
 }

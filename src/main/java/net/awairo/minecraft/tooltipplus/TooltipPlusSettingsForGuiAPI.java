@@ -79,7 +79,7 @@ public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
         colouringWindow = new ColouringWindow(r, g, b);
         mss.append(colouringWindow.openButton);
         window.backButton.addCallback(new WindowCloseHandler());
-        log.info("GuiAPI initialized.");
+        LOG.info("GuiAPI initialized.");
     }
 
     @Override
