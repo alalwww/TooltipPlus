@@ -24,7 +24,7 @@
 		<link>
 			<name>src/mcmod.info</name>
 			<type>1</type>
-			<locationURI>PROJECT_LOC/commons/mcmod.info</locationURI>
+			<locationURI>PROJECT_LOC/commons/src/main/assets/mcmod.info</locationURI>
 		</link>
 		<link>
 			<name>src/version.properties</name>
