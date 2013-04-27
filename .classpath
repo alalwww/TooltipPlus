@@ -11,5 +11,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Minecraft_FML"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/GuiAPI"/>
 	<classpathentry kind="lib" path="/Minecraft_FML/lib/guava-14.0-rc3.jar" sourcepath="/Minecraft_FML/lib/guava-14.0-rc3-sources.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/AwAModCommons"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
