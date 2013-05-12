@@ -18,6 +18,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import net.awairo.mcmod.common.Logger;
+
 /**
  * ItemInformationHelper.
  * 
@@ -34,6 +36,7 @@ class ItemInformationHelper
     String idAndMetadataTip = "{0}:{1}";
 
     private final TooltipPlusSettings settings;
+    private final Logger log;
 
     @Instance(Metadata.MOD_ID)
     public TooltipPlus mod;
@@ -41,6 +44,7 @@ class ItemInformationHelper
     ItemInformationHelper(TooltipPlusSettings settings)
     {
         this.settings = settings;
+        log = settings.log;
     }
 
     /**
@@ -178,7 +182,7 @@ class ItemInformationHelper
 
         if (ret.length() > 0)
         {
-            mod.log.trace(ret);
+            log.trace(ret);
         }
 
         return ret;
@@ -219,7 +223,7 @@ class ItemInformationHelper
 
         if (ret.length() > 0 && settings.env.isTraceEnabled())
         {
-            mod.log.trace(ret);
+            log.trace(ret);
         }
 
         return ret;
