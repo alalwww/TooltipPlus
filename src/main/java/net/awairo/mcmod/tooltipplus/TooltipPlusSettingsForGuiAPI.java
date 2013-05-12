@@ -8,7 +8,7 @@
  * ただしあらゆる意味での保障も行いません。
  * Modとしての再配布については、README.txt を参照ください。
  */
-package net.awairo.minecraft.tooltipplus;
+package net.awairo.mcmod.tooltipplus;
 
 import java.awt.Color;
 
