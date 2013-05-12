@@ -1,5 +1,10 @@
---------------------
-   Tooltip Plus
+
+Tooltip Plus
+=================================
+
+(c) 2013 alalwww
+https://github.com/alalwww
+
 --------------------
 
 Minecraft 非公式JPフォーラム
@@ -7,7 +12,10 @@ http://forum.minecraftuser.jp/viewtopic.php?t=2321
 
 ファイル置き場 (DropBox)
 http://goo.gl/aThkh
-========================================
+
+
+About this mod
+--------------------
 
 画面の四隅のどこかに、現在手に持っているアイテムの、名前や個数などの情報を表示します。
 表示位置、文字の色、表示する内容のいくつかを、設定により変更可能です。
@@ -37,10 +45,24 @@ mod_Tooltip r8 (Minecraft beta 1.7.3 版) を参考にさせて頂きました�
 設定画面を表示するためだけに、キーバインドを追加したくなかったので、この形にしています。
 
 
-■インストール方法
-========================================
-MinecraftForge もしくは FML の単体インストールを行います。
-必要であれば GuiAPIもインストールします。
+Installation
+--------------------
+
+### 必須 mod
+
+ * MinecraftForge (もしくは FML)
+    http://www.minecraftforge.net/
+    http://files.minecraftforge.net/ (ダウンロード専用ページ)
+
+ * AwA mod commons (前提Mod)
+    http://goo.gl/jCtMI (alalwww作のmod共通処理)
+
+### 推奨mod
+
+ * GuiAPI
+    http://www.minecraftforum.net/topic/612536-
+
+------------------------------
 
 ▼Minecraft Forge 同梱FML
  http://www.minecraftforge.net/
@@ -50,12 +72,12 @@ MinecraftForge もしくは FML の単体インストールを行います。
   https://github.com/MinecraftForge/MinecraftForge (GitHub)
 
  基本的には、プレイする Minecraft のバージョンに対応した Recommended バージョンの
- universal のZIPファイルをダウンロードし、導入すればOKです。
+ universal のJarファイルをダウンロードし、導入すればOKです。
 
  導入方法は
-  1. minecraft.jarファイルを 7-zip などで開く。
+  1. minecraft.jarファイルを 7-ZIP などで開く。
   2. META-INF フォルダーを削除する。
-  3. forge の ZIP ファイル内にある全てのファイルとフォルダーを minecraft.jar 内にコピーする。
+  3. forge の Jar ファイル内にある全てのファイルとフォルダーを minecraft.jar 内にコピーする。
 
   ※手順が変更されている可能性もあるので Minecraft Forge のサイトや JPWiki などを参照し、正しい手順で導入してください。
 
@@ -74,13 +96,7 @@ MinecraftForge もしくは FML の単体インストールを行います。
 
  導入方法は Forge とおなじく、jar に最初からある META-INF フォルダーを削除し、universal のファイルを全て追加するだけです。
 
-▽Risgami's ModLoader(非推奨)
- http://www.minecraftforum.net/topic/75440-
-
- 非推奨です。
- RMLで動作させるためのプロキシを作成しているので、それを用いることで動作するかもしれません。
- ただし、動作確認はしていません。
-
+------------------------------
 
 ▼GuiAPI (GUIによる設定変更)
 http://www.minecraftforum.net/topic/612536-
@@ -91,6 +107,7 @@ http://www.minecraftforum.net/topic/612536-
 ※Minecraft1.4.6 以降対応の GuiAPI は、FML もしくは Forge が必須です。
 インストールは、coremods フォルダーにダウンロードした jar ファイルを配置するだけです。
 
+------------------------------
 
 [[インストール手順]]
 
@@ -106,14 +123,14 @@ http://www.minecraftforum.net/topic/612536-
      任意でGuiAPIも導入します。こちらは %appdata%\.minecraft\coremods フォルダーに配置するだけです。
      このフォルダーは、Forge (もしくはFML) を導入した状態で、一度 Minecraft を起動すると作成されます。
 
-  2. ダウンロードしたZIPファイルを展開せずに、%appdata%\.minecraft\mods フォルダーに配置します。
+  2. ダウンロードしたJarファイルを展開せずに、%appdata%\.minecraft\mods フォルダーに配置します。
 
   3. Minecraftを起動します。
 
      設定を変更する場合は、一度 Minecraft を起動しメインメニューを表示したあと
      Minecraftを終了し、生成された設定ファイルを編集してください。
 
-  ※過去バージョンの当MODを導入していた場合、その ZIP ファイルは、忘れずに削除してください。
+  ※過去バージョンの当MODを導入していた場合、その jar ファイルは、忘れずに削除してください。
 
 
    なお、耐久度の表示はデフォルトでは「非表示」です。
@@ -211,22 +228,27 @@ GuiAPIの出力する設定の保存ファイルは無視されます。
 
 ■アンインストール方法
 ========================================
-.minecraft/mods/以下にある、このModのZIPファイルを削除します。
+.minecraft/mods/以下にある、このModのjarファイルを削除します。
 特に残す必要がなければ、.minecraft/config/TooltipPlus.dfg や、
 GuiAPIの設定ファイルフォルダーなど設定関連のファイルも削除します。
 
+license
+--------------------
 
-========================================
+This mod is distributed under the terms of the Minecraft Mod Public License 1.0, or MMPL.
+Please check the contents of the license located in http://www.mod-buildcraft.com/MMPL-1.0.txt
+
+この MOD は、Minecraft Mod Public License (MMPL) 1.0 の条件のもとに配布されています。
+ライセンスの内容は次のサイトを確認してください。 http://www.mod-buildcraft.com/MMPL-1.0.txt
+
+
 動画やスクリーンショット、配信内での利用はご自由にどうぞ。確認も報告も不要です。
-ただしZIPファイル単体の再配布はせず、ダウンロードできるURLを伝えてください。
-(ソースを公開しているため、第三者による悪意ある改変などが可能です。人から貰う場合はその点を考えてください。)
+
+mod pack に含めることは可能です。
+連絡は不要ですが、連絡を行いたい場合は、Twitterか日本語フォーラムに投稿してください。
+ただし、必ず mod pack 使用者に配布サイトが伝わるようにしてください。
 
 ソースコードはGitHubにて公開されています。
-解析や部分的な流用、魔改造による再配布など、任意のMinecraftバージョンへの対応など、ご自由にどうぞ。
-ライセンスや著作権的なことでなんだかんだいう事はないです。好きにしてください。
-
-ただし、この Mod を使用、流用などを行ったことで発生した事象について、
-作者はあらゆる意味においての責任も負わないものとします。無理です。
 
 ========================================
 mod_Tooltip r8 がなければこのModは作成されませんでした。
