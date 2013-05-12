@@ -12,7 +12,11 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.awt.Color;
 
-import net.awairo.minecraft.common.ColorUtils;
+import de.matthiasmann.twl.Button;
+import de.matthiasmann.twl.ColorSelector;
+import de.matthiasmann.twl.Label;
+import de.matthiasmann.twl.Widget;
+import de.matthiasmann.twl.model.ColorSpaceHSL;
 import sharose.mods.guiapi.GuiApiFontHelper;
 import sharose.mods.guiapi.GuiApiFontHelper.FontStates;
 import sharose.mods.guiapi.GuiApiHelper;
@@ -21,11 +25,8 @@ import sharose.mods.guiapi.ModAction;
 import sharose.mods.guiapi.SettingInt;
 import sharose.mods.guiapi.WidgetSimplewindow;
 import sharose.mods.guiapi.WidgetSinglecolumn;
-import de.matthiasmann.twl.Button;
-import de.matthiasmann.twl.ColorSelector;
-import de.matthiasmann.twl.Label;
-import de.matthiasmann.twl.Widget;
-import de.matthiasmann.twl.model.ColorSpaceHSL;
+
+import net.awairo.mcmod.common.ColorUtils;
 
 /**
  * ColouringWindow.
@@ -72,7 +73,7 @@ class ColouringWindow
         screenColoringWindow = new WidgetSimplewindow(widgetSingleColumn, "Tooltip text color setting");
         closeButton = screenColoringWindow.backButton;
         closeButton.addCallback(new ModAction(this, "updateColor"));
-        ModAction action = new ModAction(GuiModScreen.class, "show", new Class[] { Widget.class });
+        final ModAction action = new ModAction(GuiModScreen.class, "show", new Class[] { Widget.class });
         action.setDefaultArguments(screenColoringWindow);
         openButton = GuiApiHelper.makeButton("-> Open Color Serector", action, true);
         openButton.addCallback(new ModAction(this, "reset"));
@@ -97,9 +98,9 @@ class ColouringWindow
 
     void reset()
     {
-        byte br = ColorUtils.toByteColor(r.get());
-        byte bg = ColorUtils.toByteColor(g.get());
-        byte bb = ColorUtils.toByteColor(b.get());
+        final byte br = ColorUtils.toByteColor(r.get());
+        final byte bg = ColorUtils.toByteColor(g.get());
+        final byte bb = ColorUtils.toByteColor(b.get());
         colorSelector.setColor(new de.matthiasmann.twl.Color(br, bg, bb, (byte) 0xff));
     }
 }

@@ -10,26 +10,26 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import net.awairo.minecraft.common.Logger;
-import net.awairo.minecraft.common.ReflectionHelper;
+import java.util.EnumSet;
+
+import cpw.mods.fml.common.ITickHandler;
+import cpw.mods.fml.common.TickType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.item.ItemStack;
+
+import net.awairo.mcmod.common.Logger;
 
 /**
  * Tooltip Plus.
  * 
  * @author alalwww
  */
-public class TooltipUpdater
+public class TooltipUpdater implements ITickHandler
 {
-    private final Logger log = Logger.getLogger(TooltipPlus.class);
-
     private static final int ITEM_NONE_ID = -1;
     private static final int ITEM_NONE_DAMAGE = 0;
     private static final int ITEM_NONE_STACKSIZE = 0;
-
-    private static final String GUI_API_CLASSNAME = "sharose.mods.guiapi.GuiAPI";
 
     private final Minecraft game;
 
@@ -43,24 +43,65 @@ public class TooltipUpdater
     private int lastHadItemDamage;
     private int lastHadItemStackSize;
 
+    private final Logger log;
+
     /**
      * Constructor.
      */
-    public TooltipUpdater()
+    public TooltipUpdater(TooltipPlusSettings settings)
     {
         game = Minecraft.getMinecraft();
 
-        if (ReflectionHelper.findClass(GUI_API_CLASSNAME))
-            settings = new TooltipPlusSettingsForGuiAPI();
-        else
-            settings = new TooltipPlusSettings();
+        this.settings = settings;
+        log = Logger.getLogger(settings.env);
 
         helper = new ItemInformationHelper(settings);
         renderer = new TooltipRenderer(settings);
         tips = new TooltipPool();
+
         lastUpdateTime = System.nanoTime();
 
         log.info("initialize completed.");
+    }
+
+    @Override
+    public void tickStart(EnumSet<TickType> type, Object... tickData)
+    {
+        // nothing
+    }
+
+    @Override
+    public void tickEnd(EnumSet<TickType> type, Object... tickData)
+    {
+        if (game.theWorld == null)
+        {
+            return;
+        }
+
+        if (game.mcProfiler.profilingEnabled)
+        {
+            game.mcProfiler.startSection("AwA mods");
+            game.mcProfiler.startSection("Tooltip Plus");
+            update();
+            game.mcProfiler.endSection();
+            game.mcProfiler.endSection();
+        }
+        else
+        {
+            update();
+        }
+    }
+
+    @Override
+    public EnumSet<TickType> ticks()
+    {
+        return EnumSet.of(TickType.RENDER);
+    }
+
+    @Override
+    public String getLabel()
+    {
+        return "TooltipPlusTicker";
     }
 
     /**
@@ -68,15 +109,15 @@ public class TooltipUpdater
      * 
      * @param renderPertialTicks
      */
-    public void update()
+    private void update()
     {
         if (!settings.getEnabled() || game.currentScreen != null)
         {
             return;
         }
 
-        long currentTime = System.nanoTime();
-        ItemStack currentItem = getCurrentHaving();
+        final long currentTime = System.nanoTime();
+        final ItemStack currentItem = getCurrentHaving();
 
         if (isUpdatePhase(currentTime, currentItem))
         {
@@ -84,9 +125,9 @@ public class TooltipUpdater
             saveCurrentItemInfo(currentItem);
             updateTips(currentItem);
 
-            if (settings.trace)
+            if (settings.env.isTraceEnabled())
             {
-                for (Tooltip t : tips)
+                for (final Tooltip t : tips)
                 {
                     log.trace(t.toString());
                 }
@@ -181,12 +222,13 @@ public class TooltipUpdater
             return;
         }
 
-        Position pos = settings.getPosition();
-        ScaledResolution sr = new ScaledResolution(game.gameSettings, game.displayWidth, game.displayHeight);
-        int w = sr.getScaledWidth();
-        int h = sr.getScaledHeight();
-        int hOffset = settings.getHorizontalOffset();
-        int vOffset = settings.getVerticalOffset();
+        final Position pos = settings.getPosition();
+        final ScaledResolution sr = new ScaledResolution(game.gameSettings, game.displayWidth,
+                game.displayHeight);
+        final int w = sr.getScaledWidth();
+        final int h = sr.getScaledHeight();
+        final int hOffset = settings.getHorizontalOffset();
+        final int vOffset = settings.getVerticalOffset();
         int line = 1;
         Tooltip tip = tips.getTooltip();
         tip.tooltip = helper.getItemTip(itemStack);

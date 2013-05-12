@@ -28,9 +28,9 @@ class TooltipRenderer
 
     void renderTips(Minecraft game, TooltipPool tips)
     {
-        int rgb = settings.getColor().getRGB();
+        final int rgb = settings.getColor().getRGB();
 
-        for (Tooltip t : tips)
+        for (final Tooltip t : tips)
         {
             game.fontRenderer.drawStringWithShadow(t.tooltip, t.point.x, t.point.y, rgb);
         }

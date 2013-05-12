@@ -47,11 +47,11 @@ public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
     public void initialize()
     {
         super.initialize();
-        WidgetClassicTwocolumn widgetColumn = new WidgetClassicTwocolumn();
+        final WidgetClassicTwocolumn widgetColumn = new WidgetClassicTwocolumn();
         window = new WidgetSimplewindow(widgetColumn, "Tooltip plus setting");
-        ModSettingScreen mss = new ModSettingScreen(window, window.titleWidget.getText());
+        final ModSettingScreen mss = new ModSettingScreen(window, window.titleWidget.getText());
         mss.widgetColumn = widgetColumn;
-        ModSettings ms = new ModSettings("TooltipPlus");
+        final ModSettings ms = new ModSettings("TooltipPlus");
         gaEnabled = ms.addSetting(mss, "Enabled", ENABLED, true);
         gaEnabled.set(enabled);
         gaPosition = ms.addSetting(mss, "Position", POSITION, Position.TOP_RIGHT.intValue, Position.labels());
@@ -70,16 +70,16 @@ public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
         gaShowEnchantment.set(enableEnchantmentTip);
         gaShowID = ms.addSetting(mss, "Show ID", SHOW_ID, false);
         gaShowID.set(enableIdTip);
-        SettingInt r = ms.addSetting(mss, "Red", COLOR + "_Red", 255, 0, 255);
-        SettingInt g = ms.addSetting(mss, "Green", COLOR + "_Green", 255, 0, 255);
-        SettingInt b = ms.addSetting(mss, "Blue", COLOR + "_Blue", 255, 0, 255);
+        final SettingInt r = ms.addSetting(mss, "Red", COLOR + "_Red", 255, 0, 255);
+        final SettingInt g = ms.addSetting(mss, "Green", COLOR + "_Green", 255, 0, 255);
+        final SettingInt b = ms.addSetting(mss, "Blue", COLOR + "_Blue", 255, 0, 255);
         r.set(color.getRed());
         g.set(color.getGreen());
         b.set(color.getBlue());
         colouringWindow = new ColouringWindow(r, g, b);
         mss.append(colouringWindow.openButton);
         window.backButton.addCallback(new WindowCloseHandler());
-        LOG.info("GuiAPI initialized.");
+        log.info("GuiAPI initialized.");
     }
 
     @Override
@@ -149,7 +149,7 @@ public class TooltipPlusSettingsForGuiAPI extends TooltipPlusSettings
 
         private boolean isColorChanged()
         {
-            Color c = getColor();
+            final Color c = getColor();
 
             if (c.getRed() != colouringWindow.r.get())
             {

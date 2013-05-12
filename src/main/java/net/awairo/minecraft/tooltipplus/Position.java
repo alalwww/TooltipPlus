@@ -10,7 +10,8 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import net.awairo.minecraft.common.Logger;
+import javax.annotation.Nullable;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 
@@ -42,7 +43,6 @@ public enum Position
      */
     BOTTOM_RIGHT(3, "Bottom Right");
 
-    private static final Logger log = Logger.getLogger(TooltipPlus.class);
     public final int intValue;
     public final String label;
 
@@ -56,8 +56,8 @@ public enum Position
 
     public void computePoint(Tooltip tip, int w, int h, int hOffset, int vOffset, int line)
     {
-        Minecraft game = Minecraft.getMinecraft();
-        FontRenderer fr = game.fontRenderer;
+        final Minecraft game = Minecraft.getMinecraft();
+        final FontRenderer fr = game.fontRenderer;
 
         // compute point x
         switch (this)
@@ -102,8 +102,8 @@ public enum Position
     {
         if (labels == null)
         {
-            Position[] values = Position.values();
-            String[] ret = new String[values.length];
+            final Position[] values = Position.values();
+            final String[] ret = new String[values.length];
 
             for (int i = 0; i < ret.length; i++)
             {
@@ -116,9 +116,10 @@ public enum Position
         return labels;
     }
 
+    @Nullable
     public static Position parse(int intValue)
     {
-        for (Position p : values())
+        for (final Position p : values())
         {
             if (p.intValue == intValue)
             {
@@ -126,7 +127,6 @@ public enum Position
             }
         }
 
-        log.warning("illegal setting value. value=%d", intValue);
         return null;
     }
 }

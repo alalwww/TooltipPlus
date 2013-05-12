@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="src" path="src/test/java"/>
-	<classpathentry kind="src" path="commons/src/main/java"/>
+	<classpathentry kind="src" output="bin/test" path="src/test/java"/>
 	<classpathentry kind="src" path="src/main/assets"/>
-	<classpathentry kind="src" path="commons/src/main/assets"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="var" path="JSR305_ANNOTATIONS"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Minecraft_FML"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/GuiAPI"/>
 	<classpathentry kind="lib" path="/Minecraft_FML/lib/guava-14.0-rc3.jar" sourcepath="/Minecraft_FML/lib/guava-14.0-rc3-sources.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/AwAModCommons"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/AwAModCommons"/>
+	<classpathentry kind="output" path="bin/main"/>
 </classpath>

@@ -10,9 +10,10 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import com.google.common.collect.Lists;
 
 /**
  * tool tip model instance cache.
@@ -21,7 +22,7 @@ import java.util.List;
  */
 class TooltipPool implements Iterable<Tooltip>
 {
-    private final List<Tooltip> tips = new ArrayList<Tooltip>(4);
+    private final List<Tooltip> tips = Lists.newArrayListWithExpectedSize(4);
     private Iterator<Tooltip> iterator;
     private int tipsCurrentIndex = 0;
     private int cursor = 0;
