@@ -1,7 +1,0 @@
-TooltipPlusをModLoaderで読み込むためのプロクシクラスです。
-TooltipPlusのZIPファイル内に、このZIPファイルに含まれる
-mod_TooltipPlus.class ファイルを追加することで、ModLoaderでも動作するようになるかもしれません。
-
-ただし、サポート対象外です。
-動作に問題がある場合はFMLまたはForge(FMLが同梱されています)を利用してください。
-
