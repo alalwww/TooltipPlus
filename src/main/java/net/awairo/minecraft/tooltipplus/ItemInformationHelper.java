@@ -100,8 +100,7 @@ class ItemInformationHelper
     String getEnchantmentTip(ItemStack itemStack)
     {
         @SuppressWarnings("unchecked")
-        final
-        List<String> nameAndInfos = itemStack.getTooltip(Minecraft.getMinecraft().thePlayer, false);
+        final List<String> nameAndInfos = itemStack.getTooltip(Minecraft.getMinecraft().thePlayer, false);
         final int size = nameAndInfos.size();
 
         if (size <= 1)
@@ -200,7 +199,8 @@ class ItemInformationHelper
         {
             if (!hasDurability(itemStack))
             {
-                final int allItemCount = countItemFromMainInventory(itemStack.getItem(), itemStack.getItemDamage());
+                final int allItemCount = countItemFromMainInventory(itemStack.getItem(),
+                        itemStack.getItemDamage());
 
                 if (itemStack.stackSize != allItemCount)
                 {
