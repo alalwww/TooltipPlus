@@ -18,7 +18,7 @@ package net.awairo.minecraft.tooltipplus;
  */
 class Metadata
 {
-    public static final String MOD_ID = "net.awairo.minecraft.tooltipplus";
+    public static final String MOD_ID = "awairo.tooltipplus";
 
     public static final String MOD_NAME = "Tooltip Plus";
 
