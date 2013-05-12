@@ -1,12 +1,13 @@
 /*
  * TooltipPlus
  * (c) 2012 alalwww
+ * https://github.com/alalwww
  *
- * License is like to the MIT, for more information please read the Japanese.
+ * This mod is distributed under the terms of the Minecraft Mod Public License 1.0, or MMPL.
+ * Please check the contents of the license located in http://www.mod-buildcraft.com/MMPL-1.0.txt
  *
- * ソースコードの部分流用に関して、一切の制限は設けません。
- * ただしあらゆる意味での保障も行いません。
- * Modとしての再配布については、README.txt を参照ください。
+ * この MOD は、Minecraft Mod Public License (MMPL) 1.0 の条件のもとに配布されています。
+ * ライセンスの内容は次のサイトを確認してください。 http://www.mod-buildcraft.com/MMPL-1.0.txt
  */
 package net.awairo.mcmod.tooltipplus;
 
@@ -21,7 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.awairo.mcmod.common.Logger;
 
 /**
- * Tooltip Plus.
+ * TooltipUpdater.
  * 
  * @author alalwww
  */
