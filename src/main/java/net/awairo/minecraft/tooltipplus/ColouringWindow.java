@@ -12,7 +12,8 @@ package net.awairo.minecraft.tooltipplus;
 
 import java.awt.Color;
 
-import net.awairo.minecraft.common.ColorUtils;
+import net.awairo.mcmod.common.ColorUtils;
+
 import sharose.mods.guiapi.GuiApiFontHelper;
 import sharose.mods.guiapi.GuiApiFontHelper.FontStates;
 import sharose.mods.guiapi.GuiApiHelper;

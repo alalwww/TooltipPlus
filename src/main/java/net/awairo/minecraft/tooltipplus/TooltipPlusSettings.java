@@ -10,16 +10,16 @@
  */
 package net.awairo.minecraft.tooltipplus;
 
-import static net.awairo.minecraft.common.SettingsHelper.*;
+import static net.awairo.mcmod.common.SettingsHelper.*;
 
 import java.awt.Color;
 import java.io.File;
 import java.util.Properties;
 
-import net.awairo.minecraft.common.ColorUtils;
-import net.awairo.minecraft.common.Env;
-import net.awairo.minecraft.common.Logger;
-import net.awairo.minecraft.common.SettingsHelper;
+import net.awairo.mcmod.common.ColorUtils;
+import net.awairo.mcmod.common.Env;
+import net.awairo.mcmod.common.Logger;
+import net.awairo.mcmod.common.SettingsHelper;
 
 /**
  * Tooltip Plus Settings
@@ -29,19 +29,17 @@ import net.awairo.minecraft.common.SettingsHelper;
  */
 public class TooltipPlusSettings
 {
-    protected static final Logger LOG = Logger.getLogger(TooltipPlus.class);
-
     private static final String SETTINGS_FILENAME = "TooltipPlus.cfg";
-    private static final String CONFIG_COMMENT = String.format("Please read the readme.txt if you want to edit.%n");
+    private static final String CONFIG_COMMENT = String
+            .format("Please read the readme.txt if you want to edit.%n");
 
     private static final String ILLEGAL_SETTINGS = "Illegal setting value. key=%s, value=%s, newValue=%s, rule=%s";
 
-    final Env env = new Env(Metadata.MOD_ID);
-    boolean debug = env.isDebugEnabled();
-    boolean trace = env.isTraceEnabled();
-
     private final File configFile;
     private final Properties properties;
+
+    protected final Logger log;
+    public final Env env;
 
     protected boolean enabled = true;
     protected Position position = Position.TOP_RIGHT;
@@ -69,6 +67,8 @@ public class TooltipPlusSettings
      */
     public TooltipPlusSettings()
     {
+        this.log = TooltipPlus.log;
+        env = TooltipPlus.env;
         properties = new Properties();
         configFile = new File(SettingsHelper.getConfigDir(), SETTINGS_FILENAME);
         initialize();
@@ -111,11 +111,11 @@ public class TooltipPlusSettings
         properties.setProperty(SHOW_ID, Boolean.toString(showID()));
         properties.setProperty(COLOR, ColorUtils.toString(getColor()));
         SettingsHelper.store(properties, configFile, CONFIG_COMMENT);
-        LOG.info("settings saved.");
+        log.info("settings saved.");
 
-        if (debug)
+        if (env.isDebugEnabled())
         {
-            LOG.info(toString());
+            log.info(toString());
         }
     }
 
@@ -155,6 +155,7 @@ public class TooltipPlusSettings
 
             if (position == null)
             {
+                log.warning("illegal setting value. value=%d", positionIntValue);
                 position = Position.TOP_RIGHT;
             }
 
@@ -178,7 +179,7 @@ public class TooltipPlusSettings
     {
         if (durationMilliSec < UPDATE_DURATION_MIN || durationMilliSec > UPDATE_DURATION_MAX)
         {
-            LOG.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, durationMilliSec, 100, "10-10000");
+            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, durationMilliSec, 100, "10-10000");
             settingsChanged = true;
             durationMilliSec = 100;
         }
@@ -186,7 +187,7 @@ public class TooltipPlusSettings
         if (updateDurationMilliSec != durationMilliSec)
         {
             updateDurationMilliSec = durationMilliSec;
-            updateDuration = ((long) updateDurationMilliSec) * 1000000L;
+            updateDuration = (updateDurationMilliSec) * 1000000L;
             forceUpdate = true;
             settingsChanged = true;
         }
@@ -207,7 +208,7 @@ public class TooltipPlusSettings
     {
         if (h < H_OFFSET_MIN || h > H_OFFSET_MAX)
         {
-            LOG.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, h, 2, "0-50");
+            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, h, 2, "0-50");
             settingsChanged = true;
             h = 2;
         }
@@ -235,7 +236,7 @@ public class TooltipPlusSettings
     {
         if (v < V_OFFSET_MIN || v > V_OFFSET_MAX)
         {
-            LOG.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, v, 2, "0-50");
+            log.warning(ILLEGAL_SETTINGS, UPDATE_DURATION, v, 2, "0-50");
             settingsChanged = true;
             v = 2;
         }
@@ -358,7 +359,7 @@ public class TooltipPlusSettings
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append("settings: ");
         sb.append(ENABLED).append("=").append(getEnabled()).append(", ");
         sb.append(POSITION).append("=").append(getPosition()).append(", ");
