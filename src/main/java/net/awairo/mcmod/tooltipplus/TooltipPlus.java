@@ -27,7 +27,7 @@ import net.awairo.mcmod.common.ReflectionHelper;
  * 
  * @author alalwww
  */
-@Mod(modid = Metadata.MOD_ID, name = Metadata.MOD_NAME, modExclusionList = "+net.awairo.minecraft.common")
+@Mod(modid = Metadata.MOD_ID, certificateFingerprint = IAwAMod.FINGERPRINT)
 public class TooltipPlus implements IAwAMod
 {
     private static final String GUI_API_CLASSNAME = "sharose.mods.guiapi.GuiAPI";
