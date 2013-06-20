@@ -11,16 +11,16 @@
  */
 package net.awairo.mcmod.tooltipplus;
 
-import static net.awairo.mcmod.common.SettingsHelper.*;
+import static net.awairo.mcmod.common.util.SettingsHelper.*;
 
 import java.awt.Color;
 import java.io.File;
 import java.util.Properties;
 
-import net.awairo.mcmod.common.ColorUtils;
 import net.awairo.mcmod.common.Env;
-import net.awairo.mcmod.common.Logger;
-import net.awairo.mcmod.common.SettingsHelper;
+import net.awairo.mcmod.common.log.Logger;
+import net.awairo.mcmod.common.util.ColorUtils;
+import net.awairo.mcmod.common.util.SettingsHelper;
 
 /**
  * Tooltip Plus Settings

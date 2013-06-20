@@ -19,7 +19,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.item.ItemStack;
 
-import net.awairo.mcmod.common.Logger;
+import net.awairo.mcmod.common.log.Logger;
 
 /**
  * TooltipUpdater.

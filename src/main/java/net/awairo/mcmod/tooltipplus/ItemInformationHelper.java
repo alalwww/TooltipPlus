@@ -19,7 +19,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import net.awairo.mcmod.common.Logger;
+import net.awairo.mcmod.common.log.Logger;
 
 /**
  * ItemInformationHelper.
@@ -153,7 +153,8 @@ class ItemInformationHelper
      */
     String getIdTip(ItemStack itemStack)
     {
-        if (itemStack.getItem().getHasSubtypes()) // getHas-じゃなく、そのままhasSubtypes() でいいんじゃね(w
+        if (itemStack.getItem().getHasSubtypes()) // getHas-じゃなく、そのままhasSubtypes()
+                                                  // でいいんじゃね(w
         {
             return MessageFormat.format(idAndMetadataTip, itemStack.itemID, itemStack.getItemDamage());
         }

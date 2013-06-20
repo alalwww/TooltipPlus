@@ -12,15 +12,18 @@
 package net.awairo.mcmod.tooltipplus;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.FingerprintWarning;
 import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 import net.awairo.mcmod.common.Env;
 import net.awairo.mcmod.common.IAwAMod;
-import net.awairo.mcmod.common.Logger;
-import net.awairo.mcmod.common.ReflectionHelper;
+import net.awairo.mcmod.common.handler.FMLEventHandlerLogic;
+import net.awairo.mcmod.common.log.Logger;
+import net.awairo.mcmod.common.util.ReflectionHelper;
 
 /**
  * TooltipPlus loader.

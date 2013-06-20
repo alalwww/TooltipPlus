@@ -27,7 +27,7 @@ import sharose.mods.guiapi.SettingInt;
 import sharose.mods.guiapi.WidgetSimplewindow;
 import sharose.mods.guiapi.WidgetSinglecolumn;
 
-import net.awairo.mcmod.common.ColorUtils;
+import net.awairo.mcmod.common.util.ColorUtils;
 
 /**
  * ColouringWindow.
