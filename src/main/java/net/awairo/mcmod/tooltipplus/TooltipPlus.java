@@ -38,28 +38,39 @@ public class TooltipPlus implements IAwAMod
     static Env env;
     static Logger log;
 
+    /**
+     * Constructor.
+     */
     public TooltipPlus()
     {
         env = new Env(this);
         log = Logger.getLogger(env);
     }
 
-    @Init
-    public void initializeHandler(FMLInitializationEvent event)
-    {
-        TooltipPlusSettings settings;
-
-        if (ReflectionHelper.findClass(GUI_API_CLASSNAME))
-            settings = new TooltipPlusSettingsForGuiAPI();
-        else
-            settings = new TooltipPlusSettings();
-
-        TickRegistry.registerTickHandler(new TooltipUpdater(settings), Side.CLIENT);
-    }
-
     @Override
     public Env getEnv()
     {
         return env;
+    }
+
+    @Init
+    protected void initializeHandler(FMLInitializationEvent event)
+    {
+        final TooltipPlusSettings settings = getSettings();
+        TickRegistry.registerTickHandler(new TooltipUpdater(settings), Side.CLIENT);
+    }
+
+    @FingerprintWarning
+    protected void fingerprintWarning(FMLFingerprintViolationEvent event)
+    {
+        FMLEventHandlerLogic.handleViolationEvent(this, event);
+    }
+
+    private TooltipPlusSettings getSettings()
+    {
+        if (ReflectionHelper.findClass(GUI_API_CLASSNAME))
+            return new TooltipPlusSettingsForGuiAPI();
+
+        return new TooltipPlusSettings();
     }
 }
